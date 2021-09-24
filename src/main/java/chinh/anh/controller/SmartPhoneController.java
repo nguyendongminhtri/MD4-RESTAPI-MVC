@@ -14,11 +14,15 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("phone")
+@CrossOrigin(origins = "*")
 public class SmartPhoneController {
     @Autowired
     SmartPhoneServiceImpl smartPhoneService;
     @PostMapping
     public ResponseEntity<?> createSmartPhone(@RequestBody SmartPhone smartPhone){
+        if(smartPhone.getProducer().trim().isEmpty()){
+            return new ResponseEntity<>(new ResponseMessage("no"),HttpStatus.OK);
+        }
         smartPhoneService.save(smartPhone);
         return new ResponseEntity<>(new ResponseMessage("create success!"), HttpStatus.OK);
     }
