@@ -3,14 +3,18 @@ package chinh.anh.service;
 import chinh.anh.model.SmartPhone;
 import chinh.anh.repository.ISmartPhoneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
-public class SmartPhoneServiceImpl implements ISmartPhoneService{
+public class SmartPhoneServiceImpl implements ISmartPhoneService {
     @Autowired
     ISmartPhoneRepository smartPhoneRepository;
+
     @Override
     public Iterable<SmartPhone> findAll() {
         return smartPhoneRepository.findAll();
@@ -23,7 +27,7 @@ public class SmartPhoneServiceImpl implements ISmartPhoneService{
 
     @Override
     public void deleteById(Long id) {
-smartPhoneRepository.deleteById(id);
+        smartPhoneRepository.deleteById(id);
     }
 
     @Override
@@ -35,4 +39,9 @@ smartPhoneRepository.deleteById(id);
     public Iterable<SmartPhone> findAllByProducerContaining(String producer) {
         return smartPhoneRepository.findAllByProducerContaining(producer);
     }
+
+//    @Override
+//    public Page<SmartPhone> findAll(Pageable pageable) {
+//        return smartPhoneRepository.findAll(pageable);
+//    }
 }

@@ -1,8 +1,10 @@
 package chinh.anh.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "smart_phones")
@@ -10,16 +12,17 @@ public class SmartPhone {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+//@NotBlank
+//@Size(min = 3, max = 6)
     private String producer;
-
+//@NotBlank
     private String model;
-
+//@Max(100)
     private double price;
-
     public SmartPhone() {
     }
-
-    public SmartPhone(Long id,  String producer, String model, double price) {
+    public SmartPhone(Long id,
+    String producer, String model,double price) {
         this.id = id;
         this.producer = producer;
         this.model = model;

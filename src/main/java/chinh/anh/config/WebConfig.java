@@ -92,7 +92,7 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/phones_c05");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/phones_c06");
         dataSource.setUsername("root");
         dataSource.setPassword("Minhtri29092014");
         return dataSource;
@@ -112,7 +112,7 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware {
         return properties;
     }
 //    @Bean
-//    public ISmartPhoneService smartPhoneService(){
+//    public  smartPhoneService(){
 //        return new SmartPhoneServiceImpl();
 //    }
 }
